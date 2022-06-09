@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.urls import include, re_path
 from django.contrib import admin
 
 from myweb import views as myweb_views
@@ -21,11 +21,11 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^upload', myweb_views.uploadImg),
-    url(r'^show/$', myweb_views.showImg),
-    url(r'^artupload', myweb_views.uploadArt),
-    url(r'^musupload', myweb_views.uploadMus),
-    url(r'^vidupload', myweb_views.uploadVideo),
-    url(r'^show/(\S+)/(\S+)/$', myweb_views.exshow),
+    re_path(r'^admin/', admin.site.urls),
+    re_path(r'^upload', myweb_views.uploadImg),
+    re_path(r'^show/$', myweb_views.showImg),
+    re_path(r'^artupload', myweb_views.uploadArt),
+    re_path(r'^musupload', myweb_views.uploadMus),
+    re_path(r'^vidupload', myweb_views.uploadVideo),
+    re_path(r'^show/(\S+)/(\S+)/$', myweb_views.exshow),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
