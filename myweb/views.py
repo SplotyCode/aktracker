@@ -9,7 +9,6 @@ from myweb.models import MUS
 from myweb.models import VIDEO
 
 def uploadImg(request):
-
     if request.method == 'POST':
         new_img = IMG(
             img=request.FILES.get('img'), 
@@ -21,7 +20,6 @@ def uploadImg(request):
     return render(request, 'uploadimg.html')
 
 def uploadArt(request):
-
     if request.method == 'POST':
         new_art = ART(
             content=request.POST['content'], 
