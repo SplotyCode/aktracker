@@ -16,16 +16,13 @@ Including another URLconf
 from django.urls import include, re_path
 from django.contrib import admin
 
-from myweb import views as myweb_views
+from aktracker import views as myweb_views
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
-    re_path(r'^upload', myweb_views.uploadImg),
-    re_path(r'^show/$', myweb_views.showImg),
-    re_path(r'^artupload', myweb_views.uploadArt),
-    re_path(r'^musupload', myweb_views.uploadMus),
-    re_path(r'^vidupload', myweb_views.uploadVideo),
-    re_path(r'^show/(\S+)/(\S+)/$', myweb_views.exshow),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    re_path(r'^home', myweb_views.home),
+    #re_path(r'^show/$', myweb_views.showImg),
+    re_path(r'^stock/(\S+)/', myweb_views.stock),
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

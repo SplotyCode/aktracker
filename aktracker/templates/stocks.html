@@ -1,0 +1,7 @@
+<h1>Stocks<h1>
+    <title>Stocks | AcTracker</title>
+<ul>
+{% for stock in stocks %}
+<li><a href="/stock/{{stock.stock}}">{{stock.stock}} ({{stock.name}})</a></li>
+{% endfor %}
+</ul>
